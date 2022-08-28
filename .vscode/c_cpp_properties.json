@@ -1,0 +1,67 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/Users/leithen/Documents/code/arduino/arduino-weather/include",
+                "/Users/leithen/Documents/code/arduino/arduino-weather/src",
+                "/Users/leithen/Documents/code/arduino/arduino-weather/.pio/libdeps/uno_wifi_rev2/WiFiNINA/src",
+                "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/SPI/src",
+                "/Users/leithen/.platformio/packages/framework-arduino-megaavr/cores/arduino/api/deprecated",
+                "/Users/leithen/.platformio/packages/framework-arduino-megaavr/cores/arduino",
+                "/Users/leithen/.platformio/packages/framework-arduino-megaavr/variants/uno2018",
+                "/Users/leithen/Documents/code/arduino/arduino-weather/.pio/libdeps/uno_wifi_rev2/Fetch/src",
+                "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/EEPROM/src",
+                "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/HID/src",
+                "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/SoftwareSerial/src",
+                "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/Wire/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/Users/leithen/Documents/code/arduino/arduino-weather/include",
+                    "/Users/leithen/Documents/code/arduino/arduino-weather/src",
+                    "/Users/leithen/Documents/code/arduino/arduino-weather/.pio/libdeps/uno_wifi_rev2/WiFiNINA/src",
+                    "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/SPI/src",
+                    "/Users/leithen/.platformio/packages/framework-arduino-megaavr/cores/arduino/api/deprecated",
+                    "/Users/leithen/.platformio/packages/framework-arduino-megaavr/cores/arduino",
+                    "/Users/leithen/.platformio/packages/framework-arduino-megaavr/variants/uno2018",
+                    "/Users/leithen/Documents/code/arduino/arduino-weather/.pio/libdeps/uno_wifi_rev2/Fetch/src",
+                    "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/EEPROM/src",
+                    "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/HID/src",
+                    "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/SoftwareSerial/src",
+                    "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/Wire/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60104",
+                "ARDUINO_AVR_UNO_WIFI_REV2",
+                "UNO_WIFI_REV2_328MODE",
+                "MILLIS_USE_TIMERB3",
+                "F_CPU=16000000L",
+                "ARDUINO_ARCH_MEGAAVR",
+                "ARDUINO=10808",
+                "USB_VID=0x03eb",
+                "USB_PID=0x2145",
+                "USB_PRODUCT=\"Arduino Uno WiFi Rev2\"",
+                "USB_MANUFACTURER=\"Arduino\"",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/Users/leithen/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "compilerArgs": [
+                "-mmcu=atmega4809",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
