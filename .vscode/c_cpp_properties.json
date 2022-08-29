@@ -10,6 +10,7 @@
             "includePath": [
                 "/Users/leithen/Documents/code/arduino/arduino-weather/include",
                 "/Users/leithen/Documents/code/arduino/arduino-weather/src",
+                "/Users/leithen/Documents/code/arduino/arduino-weather/.pio/libdeps/uno_wifi_rev2/ArduinoJson/src",
                 "/Users/leithen/Documents/code/arduino/arduino-weather/.pio/libdeps/uno_wifi_rev2/WiFiNINA/src",
                 "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/SPI/src",
                 "/Users/leithen/.platformio/packages/framework-arduino-megaavr/cores/arduino/api/deprecated",
@@ -27,6 +28,7 @@
                 "path": [
                     "/Users/leithen/Documents/code/arduino/arduino-weather/include",
                     "/Users/leithen/Documents/code/arduino/arduino-weather/src",
+                    "/Users/leithen/Documents/code/arduino/arduino-weather/.pio/libdeps/uno_wifi_rev2/ArduinoJson/src",
                     "/Users/leithen/Documents/code/arduino/arduino-weather/.pio/libdeps/uno_wifi_rev2/WiFiNINA/src",
                     "/Users/leithen/.platformio/packages/framework-arduino-megaavr/libraries/SPI/src",
                     "/Users/leithen/.platformio/packages/framework-arduino-megaavr/cores/arduino/api/deprecated",

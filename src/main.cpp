@@ -5,9 +5,8 @@
  */
 #include <SPI.h>
 #include <WiFi.h>
+#include <ArduinoJson.h>
 #include <secrets.h>
-#include <string.h>
-using namespace std;
 
 char ssid[] = WIFI_SSID;     //  your network SSID (name)
 char pass[] = WIFI_PASSWORD;  // your network password
@@ -114,7 +113,7 @@ void setup() {
     if (client.connect(server, 80)) {
         Serial.println("connected to server");
         // Make a HTTP request:
-        client.println("GET " OW_KEY " HTTP/1.1");
+        client.println("GET /data/2.5/weather?lat=40.7608&lon=-111.8910&units=imperial&cnt=1&appid=" OW_KEY " HTTP/1.1");
         client.println("Host: api.openweathermap.org");
         client.println("Content-Type: application/json");
         client.println("Connection: close");
@@ -123,24 +122,50 @@ void setup() {
 }
 
 void loop() {
-    // check the network connection once every 10 seconds:
-    // delay(10000);
-    // printCurrentNet();
-
-    // if there are incoming bytes available
-    // from the server, read them and print them:
-    while (client.available()) {
-        char c = client.read();
-        Serial.write(c);
+    client.setTimeout(3000); // exit definitely after 3 second no data
+    // try to read until the end of the HTTP headers are reached
+    while(true) {
+        int data = client.read();
+        if (data <= 0) {
+            continue;
+        }
+        char c = (char) data;
+        //trigger on \r
+        if( c == '\r') {
+            // read the next 3 bytes when available
+            while(client.available() < 3) {}
+            char nextData[3] = {0};
+            client.read((uint8_t*) nextData, sizeof(nextData));
+            if(nextData[0] == '\n' && nextData[1] == '\r' && nextData[2] == '\n') {
+                // end of HTTP headers reached!
+                Serial.println("HTTP headers read.\n");
+                break;
+            }
+        }
     }
-
-    // if the server's disconnected, stop the client:
-    if (!client.connected()) {
-        Serial.println();
-        Serial.println("disconnecting from server.");
-        client.stop();
-
-        // do nothing forevermore:
-        while (true);
+    // the next data is all JSON response data
+    static StaticJsonDocument<768> doc;
+    DeserializationError err;
+    Serial.println("Start deserializing from string now.");
+    err = deserializeJson(doc, client);
+    if(err != DeserializationError::Ok) {
+        Serial.println("Deserialize error:");
+        Serial.println(err.f_str());
+    } else {
+        Serial.println("DESERIALIZATION OKAY!!");
+        Serial.print("Used memory: ");
+        Serial.println(doc.memoryUsage());
+        String buf;
+        serializeJson(doc, buf);
+        Serial.println("JSON data as string:");
+        Serial.println(buf);
+        // JsonObject root = doc.as<JsonObject>();
+        // for (JsonPair kv : root) {
+        //     Serial.println(kv.key().c_str());
+        //     Serial.println(kv.value().as<char*>());
+        // }
     }
+    // block forever
+    client.stop();
+    while (true);
 }
